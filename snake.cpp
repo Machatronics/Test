@@ -79,7 +79,41 @@ void Input()
 }
 void Logic()
 {
+    switch(dir) 
+    {
+        case LEFT:
+            if (x==1)
+                break;
+            
+            x--;
+            break;
+        case RIGHT:
+            if(x==19)
+                break;
+            x++;
+            break;
+        case UP:
+            if(y==1)
+            break;
+            y--;
+            break;
+        case DOWN:
+            if(y==19)
+            break;
+            y++;
+            break;
+        default:
+            break;
+        if(x==fruitX && y== fruitY)
+        {
+            score +=10;
+            fruitX = rand() % width;
+            fruitY = rand() % height;
+        }
+cout << endl;
+cout << "Score:"  << score << endl;
 
+    }
 }
 
 int main()
