@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <conio.h>
 using namespace std;
 bool gameOver;
 const int width = 20;
@@ -33,8 +34,13 @@ void Draw()
         {
             if(j==0)
                 cout << "#";
-
+            if(i== y && j==x)
+                cout << "0";
+            else if (i == fruitY && j == fruitX)
+                cout << "F";
+            else
                 cout << " ";
+
                 if(j== width-1)
                 cout << "#" ;
         }
@@ -48,7 +54,28 @@ void Draw()
 
 void Input()
 {
+    if (_kbhit()) //return bool, if keyboard is pressed or not
+    {
+        switch(_getch()) // return the ASCI value of the key pressed
+        {
+            case 'a':
+                dir = LEFT;
+                break;
+            case 'd':
+                dir = RIGHT;
+                break;
+            case 'w':
+                dir = UP;
+                break;
+            case 's':
+                dir = DOWN;
+                break;
+            case 'x':
+                gameOver = true;
+                break;
 
+        }
+    }
 }
 void Logic()
 {
