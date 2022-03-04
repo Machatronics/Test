@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <conio.h>
+#include <Windows.h>
 using namespace std;
 bool gameOver;
 const int width = 20;
@@ -8,7 +9,8 @@ const int height = 20;
 int x,y, fruitX,fruitY,score;
 enum eDirection{STOP = 0 , LEFT,RIGHT,UP,DOWN};
 eDirection dir;
-int tailX[324],int tailY[324];
+int tailX[100];
+int tailY[100];
 int nTail;
 void Setup()
 {
@@ -24,7 +26,7 @@ void Setup()
 void Draw() 
 {
     system("cls");
-    for (int i=0;i < width ; i++)
+    for (int i=0;i < width+2 ; i++)
         cout << "#";
     cout << endl;
     
@@ -51,19 +53,18 @@ void Draw()
                     }  
                 }
                 if(!print)
-                cout << " ";
+                    cout << " ";
 
             }   
                 if(j== width-1)
-                cout << "#" ;
+                    cout << "#" ;
         }
 
         cout<< endl;
     }
-            for ( int i =0; i< width; i++)
-        cout << "#";
+        for ( int i =0; i< width+2; i++)
+            cout << "#";
         cout << endl;
-
         cout << "Score:"  << score << endl;
 }
 
@@ -159,7 +160,8 @@ int main()
         Draw();
         Input();
         Logic();
-
+        Sleep(10);
     }
 }
+
 
