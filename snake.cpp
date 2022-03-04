@@ -9,8 +9,8 @@ const int height = 20;
 int x,y, fruitX,fruitY,score;
 enum eDirection{STOP = 0 , LEFT,RIGHT,UP,DOWN};
 eDirection dir;
-int tailX[100];
-int tailY[100];
+int tailX[324];
+int tailY[324];
 int nTail;
 void Setup()
 {
@@ -46,7 +46,7 @@ void Draw()
                 bool print = false; 
                 for(int k= 0 ; k <nTail; k++)
                 {
-                    if(tailX[k] == j && tailY[k]== x )
+                    if(tailX[k] == j && tailY[k]== i )
                     {
                         cout << "o"; 
                         print = true;
@@ -112,6 +112,7 @@ void Logic()
 
     switch(dir) 
     {
+        
         case LEFT:
             if (x==1)
                 break;
@@ -135,14 +136,13 @@ void Logic()
             break;
         default:
             break;
+            }
     for (int i = 0; i< nTail;i++)
-    {
         if(tailX[i] == x && tailY[i] == y)
             gameOver = true;
-    }
 
 
-    }
+    
             if(x==fruitX && y== fruitY)
         {
             score +=10;
@@ -163,5 +163,6 @@ int main()
         Sleep(10);
     }
 }
+
 
 
